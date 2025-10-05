@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Knowledge Engine</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nasa.css">
+
+
+</head>
+<body class="antialiased">
+
+    <!-- Background Animation -->
+    <div class="fixed inset-0 z-0">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="cosmos-stars-bg"></div>
+        <div class="cosmos-stars"></div>
+        
+        <!-- 3D Solar System -->
+        <div class="solar-system">
+            <div class="sun"></div>
+            
+            <!-- Mercury -->
+            <div class="orbit mercury-orbit">
+                <div class="planet mercury"></div>
+            </div>
+            
+            <!-- Venus -->
+            <div class="orbit venus-orbit">
+                <div class="planet venus"></div>
+            </div>
+            
+            <!-- Earth -->
+            <div class="orbit earth-orbit">
+                <div class="planet earth"></div>
+            </div>
+            
+            <!-- Mars -->
+            <div class="orbit mars-orbit">
+                <div class="planet mars"></div>
+            </div>
+            
+            <!-- Jupiter -->
+            <div class="orbit jupiter-orbit">
+                <div class="planet jupiter"></div>
+            </div>
+            
+            <!-- Saturn -->
+            <div class="orbit saturn-orbit">
+                <div class="planet saturn">
+                    <div class="saturn-rings"></div>
+                </div>
+            </div>
+            
+            <!-- Uranus -->
+            <div class="orbit uranus-orbit">
+                <div class="planet uranus"></div>
+            </div>
+            
+            <!-- Neptune -->
+            <div class="orbit neptune-orbit">
+                <div class="planet neptune"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="cosmos-nav">
+        <div class="cosmos-nav-container">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full cosmos-gradient-bg flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold">Cosmos Engine</span>
+            </div>
+            
+            <a href="#main"><button class="cosmos-btn cosmos-btn-primary text-sm font-medium">
+                Get Started
+            </button></a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="app" class="relative z-10 flex flex-col items-center min-h-screen w-full px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+        
+        <!-- Hero Section -->
+        <section id="main" class="cosmos-hero w-full">
+            <div class="cosmos-hero-content">
+                <h1 class="cosmos-heading-xl cosmos-gradient-text mb-4">
+                    <span class="cosmos-heading-xl cosmos-gradient-text mb-4 hover:cosmos-glow-effect transition-shadow duration-300"></span>Space Knowledge Engine</span>
+                </h1>
+                <p class="cosmos-text-lg mb-10">Your Portal to the Cosmos</p>
+                
+                
+                <!-- Search Bar and Form -->
+                <div class="w-full flex flex-col items-center gap-8">
+                    <form id="search-form" class="w-full max-w-2xl">
+                        <div class="relative">
+                            <input
+                                id="search-input"
+                                type="text"
+                                placeholder="Ask about planets, stars, black holes..."
+                                class="w-full px-5 py-4 pr-16 text-lg cosmos-input focus:outline-none cosmos-glow-effect"
+                            />
+                            <button
+                                id="submit-button"
+                                type="submit"
+                                class="absolute inset-y-0 right-0 flex items-center justify-center w-14 h-14 text-white cosmos-btn-primary rounded-full transform hover:scale-105 transition-transform duration-200 disabled:bg-gray-600 disabled:cursor-not-allowed"
+                                aria-label="Submit Query"
+                            >
+                                <!-- Arrow Icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Answer Display Area -->
+        <section class="cosmos-section w-full">
+            <div class="cosmos-container">
+                <div id="answer-display" class="w-full max-w-4xl mx-auto min-h-[10rem] flex items-center justify-center">
+                    <!-- Content will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="cosmos-section w-full">
+            <div class="cosmos-container">
+                <h2 class="cosmos-heading-md cosmos-text-center mb-4">Explore the Universe</h2>
+                <p class="cosmos-text-lg cosmos-text-center max-w-2xl mx-auto mb-12">Discover the wonders of space with our AI-powered knowledge engine</p>
+                
+                <div class="cosmos-grid">
+                    <div class="cosmos-feature-card">
+                        <div class="cosmos-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="cosmos-heading-sm mb-2">Stars & Galaxies</h3>
+                        <p class="cosmos-text-md">Learn about stellar evolution, galaxy formation, and cosmic phenomena.</p>
+                    </div>
+                    
+                    <div class="cosmos-feature-card">
+                        <div class="cosmos-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="M4.93 4.93l1.41 1.41"></path>
+                                <path d="M17.66 17.66l1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="M6.34 17.66l-1.41 1.41"></path>
+                                <path d="M19.07 4.93l-1.41 1.41"></path>
+                            </svg>
+                        </div>
+                        <h3 class="cosmos-heading-sm mb-2">Solar System</h3>
+                        <p class="cosmos-text-md">Explore planets, moons, asteroids, and other objects in our solar system.</p>
+                    </div>
+                    
+                    <div class="cosmos-feature-card">
+                        <div class="cosmos-feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="cosmos-heading-sm mb-2">Black Holes</h3>
+                        <p class="cosmos-text-md">Understand the mysteries of black holes, event horizons, and spacetime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="cosmos-section w-full">
+            <div class="cosmos-container">
+                <div id="history-container" class="w-full max-w-2xl mx-auto">
+                    <!-- History will be injected here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="cosmos-footer w-full mt-16">
+            <div class="cosmos-container">
+                <div class="cosmos-footer-bottom flex flex-col items-center justify-center text-center gap-4">
+                    <div class="flex items-center justify-center space-x-2">
+                        <div class="w-8 h-8 rounded-full cosmos-gradient-bg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">Cosmos Engine</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script type="module">
+        // --- DOM Element References ---
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const submitButton = document.getElementById('submit-button');
+        const answerDisplay = document.getElementById('answer-display');
+        const historyContainer = document.getElementById('history-container');
+
+        // --- State Management ---
+        let isLoading = false;
+        let history = [];
+        const API_KEY = 'AIzaSyDnE_kqB9BrgPlxuMRSZ_HxQJgFZRkBgBg'; // Your API key integrated directly
+
+        // --- UI Rendering Functions ---
+
+        const renderWelcomeMessage = () => {
+            answerDisplay.innerHTML = `
+                <div class="text-center animate-fade-in cosmos-card">
+                    <h2 class="cosmos-heading-md mb-4">Welcome to the Space Knowledge Engine!</h2>
+                    <p class="cosmos-text-lg mb-6">Ask the universe a question to begin.</p>
+                    <div class="flex flex-wrap justify-center gap-3 mt-6">
+                        <button class="suggestion-btn cosmos-btn cosmos-btn-primary text-sm rounded-full transition-colors duration-200">What is a black hole?</button>
+                        <button class="suggestion-btn cosmos-btn cosmos-btn-primary text-sm rounded-full transition-colors duration-200">How do stars form?</button>
+                        <button class="suggestion-btn cosmos-btn cosmos-btn-primary text-sm rounded-full transition-colors duration-200">Tell me about Jupiter</button>
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderLoadingIndicator = () => {
+            answerDisplay.innerHTML = `
+                <div class="flex flex-col items-center justify-center space-y-4 animate-fade-in cosmos-card">
+                    <div class="relative">
+                        <div class="w-16 h-16 border-4 border-gray-700 rounded-full"></div>
+                        <div class="w-16 h-16 border-4 border-dashed cosmos-gradient-bg rounded-full animate-spin-slow absolute top-0 left-0"></div>
+                    </div>
+                    <p class="cosmos-text-lg">Contacting the cosmos...</p>
+                </div>
+            `;
+        };
+        
+        const renderError = (errorMessage) => {
+            answerDisplay.innerHTML = `
+                <div class="text-center max-w-xl cosmos-card border border-red-500/50 animate-fade-in">
+                    <h3 class="cosmos-heading-sm text-red-300 mb-2">An Error Occurred</h3>
+                    <p class="text-red-400">${errorMessage}</p>
+                    <button id="retry-btn" class="mt-4 cosmos-btn cosmos-btn-secondary">Try Again</button>
+                </div>
+            `;
+            
+            document.getElementById('retry-btn').addEventListener('click', () => {
+                renderWelcomeMessage();
+            });
+        };
+
+        const renderAnswer = (query, answer) => {
+            const formattedAnswer = answer.replace(/\n/g, '<br />');
+
+            answerDisplay.innerHTML = `
+                <div class="w-full cosmos-card animate-fade-in custom-scrollbar" style="max-height: 70vh; overflow-y: auto;">
+                    <h2 class="cosmos-heading-sm cosmos-gradient-text mb-4">Your Question:</h2>
+                    <p class="cosmos-text-lg mb-6 italic">"${query}"</p>
+                    <div class="border-t border-gray-700 my-6"></div>
+                    <h2 class="cosmos-heading-sm cosmos-gradient-text mb-4">Cosmic Answer:</h2>
+                    <div class="cosmos-text-md max-w-none space-y-4">${formattedAnswer}</div>
+                </div>
+            `;
+            answerDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+        
+        const renderHistory = () => {
+            if (history.length === 0) {
+                historyContainer.innerHTML = '';
+                return;
+            }
+            const historyButtons = history.map(item => 
+                `<button 
+                    class="history-btn cosmos-btn cosmos-btn-primary text-sm rounded-full transition-colors duration-200"
+                    data-query="${item.query}"
+                >
+                    ${item.query.length > 30 ? item.query.substring(0, 30) + '...' : item.query}
+                </button>`
+            ).join('');
+            
+            historyContainer.innerHTML = `
+                <div class="text-center animate-fade-in">
+                    <h3 class="cosmos-heading-sm mb-4">Recent Queries</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        ${historyButtons}
+                    </div>
+                </div>
+            `;
+        };
+
+        // --- Core Application Logic ---
+
+        const getAiResponse = async (userQuery) => {
+            if (isLoading) return;
+            
+            setLoading(true);
+            renderLoadingIndicator();
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+
+            const systemPrompt = "You are the Space Knowledge Engine, an expert AI assistant specializing in astronomy, astrophysics, and space exploration. Your purpose is to provide accurate, informative, and engaging answers to questions about space. When asked a question, provide a concise, well-structured answer. Start with a direct answer, followed by a more detailed explanation. Use analogies where helpful for complex topics. Maintain a knowledgeable and enthusiastic tone.";
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`API Error: ${response.status} - ${errorText}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    renderAnswer(userQuery, text);
+                    history.unshift({ query: userQuery, answer: text });
+                    history = history.slice(0, 5); // Keep last 5 queries
+                    renderHistory();
+                } else {
+                    throw new Error("Received an empty or invalid response from the AI model.");
+                }
+
+            } catch (err) {
+                console.error('Fetch Error:', err);
+                renderError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        // --- Utility Functions ---
+        const setLoading = (state) => {
+            isLoading = state;
+            searchInput.disabled = state;
+            submitButton.disabled = state;
+            
+            if (state) {
+                submitButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-spin">
+                        <path d="M21 12a9 9 0 11-6.219-8.56"></path>
+                    </svg>
+                `;
+            } else {
+                submitButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                `;
+            }
+        };
+
+        // --- Event Listeners ---
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                getAiResponse(query);
+                searchInput.value = '';
+            }
+        });
+        
+        historyContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('history-btn')) {
+                const query = e.target.dataset.query;
+                if (query) {
+                    searchInput.value = query;
+                    getAiResponse(query);
+                }
+            }
+        });
+        
+        // Add event listener for suggestion buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('suggestion-btn')) {
+                const query = e.target.textContent;
+                if (query) {
+                    searchInput.value = query;
+                    getAiResponse(query);
+                }
+            }
+        });
+
+        // --- Initial Load ---
+        renderWelcomeMessage();
+    </script>
+</body>
+</html>
